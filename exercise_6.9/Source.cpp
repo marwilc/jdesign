@@ -1,41 +1,27 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
-int CountWhiteSpace(string s){
 
-    int n = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == ' ')
-            n++;
+void powers(int x, double &recip, double &square, double &cube){
+    recip = (double) 1/x;
+    square = (double) pow(x,2);
+    cube = (double) pow(x,3);
 
-    }
-    return n;
-}
-
-void OutputWithoutWhitespace(string s){
-    int n = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] != ' ')
-            cout << s[i];
-
-    }
 }
 int main(){
 
-    char phrase[9999];
-    string nwsPhrase;
-    int wSpaces;
+    int n;
+    double recip;
+    double square;
+    double cube;
+    cout << "Enter a positive integer: " ;
+    cin >> n;
     
-    
-    cout << "Enter a sentence or phrase:" << endl;
-    cin.getline(phrase, sizeof(phrase));
-    wSpaces = CountWhiteSpace(phrase);
-    cout << endl << "You entered: " << phrase<< endl;
+    powers(n, recip, square, cube);
+    cout << " Reciprocal: " << recip << "   " ;
+    cout << "Square: " << square << "   ";
+    cout << "Cube: " << cube << "   "<< endl;
 
-    cout << "Whitespace count: " << wSpaces<< endl;
-    
-    cout << "String with no whitespace: ";
-    OutputWithoutWhitespace(phrase); 
-    cout << endl;
     return 0;
 }
